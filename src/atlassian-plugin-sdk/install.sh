@@ -10,10 +10,15 @@ else
 fi
 
 apt update
-apt upgrade
-apt install curl
+apt upgrade -y
+apt install -y curl
 mkdir -p /usr/local/share/atlassian-plugin-sdk
-curl -so- "$SDK_URL" | \
+curl -fLsS "$SDK_URL" | \
 tar -xz -C /usr/local/share/atlassian-plugin-sdk --strip-components=1
-find /usr/local/share/atlassian-plugin-sdk/bin -exec chmod +x {} \;
-sed -i "s|^PATH=\"|PATH=\""/usr/local/share/atlassian-plugin-sdk/bin":|" /etc/environment
+find /usr/local/share/atlassian-plugin-sdk/**/bin \
+    -maxdepth 1 \
+    -not -name "*.*" \
+    -type f \
+    -exec chmod +x {} + \
+    -exec ln -sf {} /usr/local/bin/ \;
+exit 0
