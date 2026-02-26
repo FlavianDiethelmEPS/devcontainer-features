@@ -9,6 +9,7 @@ else
     SDK_URL=$SDK_BASE_URL"version/"$(echo "$VERSION" | awk -F. '{print $1*100000000+$2*100000+$3*100}')
 fi
 
+apt install wget
 mkdir -p /usr/local/share/atlassian-plugin-sdk
 wget -q -O - "$SDK_URL" | \
 tar -xz -C /usr/local/share/atlassian-plugin-sdk --strip-components=1
