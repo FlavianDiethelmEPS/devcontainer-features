@@ -1,0 +1,14 @@
+{
+    "id": "atlassian-plugin-sdk",
+    "version": "1.0.0",
+    "name": "Atlassian Plugin SDK",
+    "description": "Atlassians software development kit for server/datacenter plugins.",
+    "options": {
+        "version": {
+            "default": "latest",
+            "description": "Select the version to install",
+            "proposals": ["latest"],
+            "type": "string"
+        }
+    }
+}
