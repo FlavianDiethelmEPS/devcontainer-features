@@ -1,0 +1,35 @@
+{
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.vscode-github-actions",
+				"SanjulaGanepola.github-local-actions"
+			]
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers-extra/features/act-asdf:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/actions-runner:1": {
+			"dotnetVersion": "latest",
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"dockerDashComposeVersion": "none",
+			"installDockerBuildx": true,
+			"moby": "false",
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"nvmVersion": "latest",
+			"pnpmVersion": "none",
+			"version": "lts"
+		}
+	},
+	"image": "mcr.microsoft.com/devcontainers/base:trixie",
+	"name": "Devcontainer Development"
+}
