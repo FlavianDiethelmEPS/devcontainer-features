@@ -9,6 +9,8 @@ else
     SDK_URL=$SDK_BASE_URL"version/"$(echo "$VERSION" | awk -F. '{print $1*100000000+$2*100000+$3*100}')
 fi
 
+apt update
+apt upgrade
 apt install curl
 mkdir -p /usr/local/share/atlassian-plugin-sdk
 curl -so- "$SDK_URL" | \
