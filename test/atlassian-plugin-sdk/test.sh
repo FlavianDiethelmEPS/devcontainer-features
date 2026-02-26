@@ -1,11 +1,9 @@
-#!/bins/sh
-set -ex
-if ! command -v atlas-version >/dev/null 2>&1; then
+#!/bin/sh
+set -e
+for cmd in atlas-version atlas-mvn atlas-debug; do
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    echo "Missing required command: $cmd" >&2
     exit 1
-elif ! command -v atlas-mvn >/dev/null 2>&1; then
-    exit 1
-elif ! command -v atlas-debug >/dev/null 2>&1; then
-    exit 1
-else
-    exit 0
-fi
+  fi
+done
+exit 0
