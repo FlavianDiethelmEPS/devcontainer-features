@@ -15,10 +15,15 @@ apt install -y curl
 mkdir -p /usr/local/share/atlassian-plugin-sdk
 curl -fLsS "$SDK_URL" | \
 tar -xz -C /usr/local/share/atlassian-plugin-sdk --strip-components=1
-find /usr/local/share/atlassian-plugin-sdk/**/bin \
+find /usr/local/share/atlassian-plugin-sdk/bin \
     -maxdepth 1 \
     -not -name "*.*" \
     -type f \
     -exec chmod +x {} + \
     -exec ln -sf {} /usr/local/bin/ \;
+find /usr/local/share/atlassian-plugin-sdk/apache-maven-*/bin \
+    -maxdepth 1 \
+    -not -name "*.*" \
+    -type f \
+    -exec chmod +x {} +
 exit 0
